@@ -1,0 +1,47 @@
+body {
+}
+#table1{
+	
+	border-color: transparent;
+}
+#Stopwatch_span_id{
+	
+	background-color: #333333;
+	border:#999 2px inset;
+	padding:10px;
+	color:#0FF;
+	font-family:"Arial Black",Gadget,sans-serif;
+	  font-size:16px;
+	  font-weight:bold;
+	letter-spacing:2px;
+	display:inline;
+	align:center;  
+	vertical-align: top;
+	margin-left: 75px;
+	left: 10px;
+	position: fixed;
+}
+#start {
+	
+	background-color:#FF0000;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-left-style: solid;
+	
+}
+#stop{
+	background-color:#FF0000;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-left-style: solid;
+	
+	
+}
+
+#reset{
+	background-color:#FF0000;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-left-style: solid;
+
+}

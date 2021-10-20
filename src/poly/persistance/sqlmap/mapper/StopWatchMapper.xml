@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IStopWatchMapper">
+
+	<!-- 시간 저장 -->
+	<insert id="saveTime" parameterType="StopWatchDTO">
+		INSERT INTO STOPWATCH(
+		STOP_NO, USER_NO, STARTTIME, LASTTIME, WALK_DAY)
+		VALUES(
+		(SELECT IFNULL(MAX(CAST(SI.STOP_NO AS UNSIGNED)), 0)+1 FROM STOPWATCH SI),
+		#{user_no}, #{starttime}, #{lasttime}, #{walk_day})
+	</insert>
+	
+	<!-- 시간 분석 -->
+	<select id="getTimeData" resultType="StopWatchDTO">
+		SELECT DATE(WALK_DAY) AS DATA, SUM(LASTTIME)AS DATA1, USER_NO
+		FROM STOPWATCH
+		GROUP BY DATA
+		HAVING USER_NO = #{user_no}
+	</select>
+</mapper>
